@@ -48,11 +48,7 @@ A *module* is a self-contained description of a software package -
 it contains the settings required to run a software packace 
 and, usually, encodes required dependencies on other software packages.
 
-There are a number of different environment module implementations commonly
-used on HPC systems: the two most common are *TCL modules* and *Lmod*. Both of
-these use similar syntax and the concepts are the same so learning to use one will
-allow you to use whichever is installed on the system you are using. In both 
-implementations the `module` command is used to interact with environment modules. An
+The `module` command is used to interact with environment modules. An
 additional subcommand is usually added to the command to specify what you want to do. For a list
 of subcommands you can use `module -h` or `module help`. As for all commands, you can 
 access the full help on the *man* pages with `man module`.

@@ -126,34 +126,10 @@ guidance on your options for data transfer for the volumes of data you will be u
 ## Transferring data
 
 As mentioned above, many users run into the challenge of transferring large amounts of data 
-off HPC systems at some point (this is more often in transferring data off than onto systems
-but the advice below applies in either case). Data transfer speed may be limited by many
-different factors so the best data transfer mechanism to use depends on the type of data being
-transferred and where the data is going. Some of the key issues to be aware of are:
+onto or off HPC systems at some point (this is more often in transferring data off than onto systems
+but the advice below applies in either case). 
 
-- **Disk speed** - File systems on HPC systems are often highly parallel, consisting of a very
-  large number of high performance disk drives. This allows them to support a very high data
-  bandwidth. Unless the remote system has a similar parallel file system you may find your
-  transfer speed limited by disk performance at that end.
-- **Meta-data performance** - *Meta-data operations* such as opening and closing files or
-  listing the owner or size of a file are much less parallel than read/write operations. If
-  your data consists of a very large number of small files you may find your transfer speed is
-  limited by meta-data operations. Meta-data operations performed by other users of the system
-  can also interact strongly with those you perform so reducing the number of such operations
-  you use (by combining multiple files into a single file) may reduce variability in your transfer
-  rates and increase transfer speeds.
-- **Network speed** - Data transfer performance can be limited by network speed. More importantly
-  it is limited by the slowest section of the network between source and destination. If you are
-  transferring to your laptop/workstation, this is likely to be its connection (either via LAN or 
-  wifi).
-- **Firewall speed** - Most modern networks are protected by some form of firewall that filters
-  out malicious traffic. This filtering has some overhead and can result in a reduction in data
-  transfer performance. The needs of a general purpose network that hosts email/web-servers and
-  desktop machines are quite different from a research network that needs to support high volume
-  data transfers. If you are trying to transfer data to or from a host on a general purpose
-  network you may find the firewall for that network will limit the transfer rate you can achieve.
-
-As mentioned above, if you have related data that consists of a large number of small files it
+As mentioned, if you have related data that consists of a large number of small files it
 is strongly recommended to pack the files into a larger *archive* file for long term storage and
 transfer. A single large file makes more efficient use of the file system and is easier to move,
 copy and transfer because significantly fewer meta-data operations are required. Archive files can

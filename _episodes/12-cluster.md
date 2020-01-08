@@ -3,35 +3,18 @@ title: "Working on a remote HPC system"
 teaching: 25
 exercises: 10
 questions:
-- "What is an HPC system?"
-- "How does an HPC system work?"
 - "How do I log on to a remote HPC system?"
 objectives:
 - "Connect to a remote HPC system."
 - "Understand the general HPC system architecture."
 keypoints:
-- "An HPC system is a set of networked machines."
 - "HPC systems typically provides login nodes and a set of worker nodes."
 - "The resources found on independent (worker) nodes can vary in volume and type (amount of RAM, processor architecture, availability of network mounted file systems, etc.)."
 - "Files saved on one node are available on all nodes."
 ---
 
-## What is an HPC system?
-
-The words "cloud", "cluster", and "high-performance computing" are used a lot in different contexts
-and with varying degrees of correctness. So what do they mean exactly? And more importantly, how do
-we use them for our work?
-
-The *cloud* is a generic term commonly used to refer to remote computing resources of any kind --
-that is, any computers that you use but are not right in front of you. Cloud can refer to
-machines serving websites, providing shared storage, providing webservices (such as e-mail or social
-media platforms), as well as more traditional "compute" resources. An *HPC system* on the other hand,
-is a term used to describe a network of computers. The computers in a cluster typically share a common
-purpose, and are used to accomplish tasks that might otherwise be too big for any one computer.
-
 ## Logging in
-
-Go ahead and log in to the cluster: {{ site.host_name }} at {{ site.host_location }}.
+To log into the cluster ({{ site.host_name }} at {{ site.host_location }}) use:
 ```
 {{ site.local_prompt }} ssh yourUsername@{{ site.host_login }}
 ```

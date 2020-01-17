@@ -39,9 +39,8 @@ and to transfer data
 > An HPC cluster is a relatively robust system that is specifically designed to be able to handle multiple users 
 > working on it at once -- for instance, there are systems preventing you from deleting files created
 > by other users, and if you accidentally submit too many jobs the scheduler will notice and hold some of them
-> for other users to get through.
->
-> If you're ever in doubt about something you want to try, get in touch with the support team for the 
+> for other users to get through. If you're ever in doubt about something you want to try, 
+> get in touch with the support team for the 
 > cluster you're using -- their email should be prominent in the cluster documentation
 {: .callout}
 

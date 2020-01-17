@@ -12,12 +12,14 @@ objectives:
 - "Appreciate the challenges with transferring large amounts of data off HPC systems."
 - "Understand how to convert many files to a single archive file using tar."
 keypoints:
-- "Be careful how you use the login node."
+- "Clusters are designed to handle large number of users"
+- "The shared resources which it is possible to accidentally use too much of are memory and cpus on the login nodes, and I/O"
 - "Your data on the system is your responsibility."
 - "Plan and test large data transfers."
 - "It is often best to convert many files to a single archive file before transferring."
 - "Again, don't run stuff on the login node."
 - "Don't be a bad person and run stuff on the login node."
+- "When in doubt, talk to the cluster support team first"
 ---
 
 One of the major differences between using remote HPC resources and your own system 
@@ -30,13 +32,26 @@ the scheduling system where you submit your jobs, but there are other things you
 to consider in order to be a considerate HPC citizen, to protect your critical data
 and to transfer data 
 
+> ## It's relatively hard to break a cluster
+>
+> While it is important to keep in mind the following guidelines for using the cluster responsibly,
+> it is also possible to be too scared of breaking something -- remember, these systems exist to be used!
+> An HPC cluster is a relatively robust system that is specifically designed to be able to handle multiple users 
+> working on it at once -- for instance, there are systems preventing you from deleting files created
+> by other users, and if you accidentally submit too many jobs the scheduler will notice and hold some of them
+> for other users to get through.
+>
+> If you're ever in doubt about something you want to try, get in touch with the support team for the 
+> cluster you're using -- their email should be prominent in the cluster documentation
+{: .callout}
+
 ## Be kind to the login nodes
 
 The login node is often very busy managing lots of users logged in, creating and editing files
 and compiling software! It doesn’t have any extra space to run computational work.
 
 Don’t run jobs on the login node (though quick tests are generally fine). A “quick test” is
-generally anything that uses less than 5 minutes of time. If you
+generally anything that uses less than 1 minute of time. If you
 use too much resource then other users on the login node will start to be affected - their
 login sessions will start to run slowly and may even freeze or hang. 
 
@@ -126,8 +141,7 @@ guidance on your options for data transfer for the volumes of data you will be u
 ## Transferring data
 
 As mentioned above, many users run into the challenge of transferring large amounts of data 
-onto or off HPC systems at some point (this is more often in transferring data off than onto systems
-but the advice below applies in either case). 
+onto or off HPC systems at some point.
 
 As mentioned, if you have related data that consists of a large number of small files it
 is strongly recommended to pack the files into a larger *archive* file for long term storage and
@@ -136,14 +150,21 @@ copy and transfer because significantly fewer meta-data operations are required.
 be created using tools like `tar` and `zip`. We have already met `tar` when we talked about data
 transfer earlier. 
 
-> ## Consider the best way to transfer data
-> If you are transferring large amounts of data you will need to think about what may affect your transfer
-> performance. It is always useful to run some tests that you can use to extrapolate how long it will
-> take to transfer your data.
->
-> If you have many files, it is best to combine them into an archive file before you transfer them using a
-> tool such as `tar`.
-{: .callout}
+If you are transferring large amounts of data it is always useful to run some tests that you can use 
+to extrapolate how long it will take to transfer your data. 
 
+## Getting help
+
+If you believe you may have unusual needs, such as needing to transfer very large amounts of data to
+the cluster, talk to the support team for the cluster you are using -- you should be able to find their
+contact details in the cluster documentation. They are there to help, and in general will be much happier
+answering a query ahead of time than needing to fix something after the fact!
+
+After checking the cluster documentation, the support team is also your first port of call for any general advice on 
+how to use the system. Depending on the cluster, the preferred method of contact may be direct email to the support
+team, or there may be a forum that is public for all users to view. 
+
+Finally, there will often be further training available for the particular cluster you are using. Many clusters will 
+have a mailing list with updates on these events as well as important notices for users such as maintenance shut downs. 
 
 {% include links.md %}

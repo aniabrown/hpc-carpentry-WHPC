@@ -13,7 +13,7 @@ objectives:
 - "Understand how to convert many files to a single archive file using tar."
 keypoints:
 - "Clusters are designed to handle large number of users"
-- "The shared resources which it is possible to accidentally use too much of are memory and cpus on the login nodes, and I/O"
+- "The shared resources to be careful with are memory and cpus on the login nodes, and I/O"
 - "Your data on the system is your responsibility."
 - "Plan and test large data transfers."
 - "It is often best to convert many files to a single archive file before transferring."

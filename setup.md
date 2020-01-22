@@ -4,7 +4,7 @@ title: Setup
 permalink: /setup/
 ---
 
-There are a few steps to setup for the workshop. We strongly recommedn that you complete these before the worksop starts. If you run into problems, please contact the workshop leader at the e-mail address on the home page. We will also provide installation and setup help at the workshop if  required, but you will get more out of the training if you can complete them ahead of time.
+There are a few steps to setup for the workshop. We strongly recommend that you complete these before the worksop starts. If you run into problems, please contact the workshop leader at the e-mail address on the home page. We will also provide installation and setup help at the workshop if  required, but you will get more out of the training if you can complete them ahead of time.
 
 There are three steps to the setup:
 

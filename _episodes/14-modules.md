@@ -10,6 +10,7 @@ keypoints:
 - "Load software with `module load softwareName`"
 - "Unload software with `module purge`"
 - "The module system handles software versioning and package conflicts for you automatically."
+- "You can edit your `.bashrc` file to automatically load a software package."
 ---
 
 On a high-performance computing system, it is often the case that no software is loaded by default. If we want to use a
@@ -47,7 +48,11 @@ A *module* is a self-contained description of a software package -
 it contains the settings required to run a software packace 
 and, usually, encodes required dependencies on other software packages.
 
-The `module` command is used to interact with environment modules. An
+There are a number of different environment module implementations commonly
+used on HPC systems: the two most common are *TCL modules* and *Lmod*. Both of
+these use similar syntax and the concepts are the same so learning to use one will
+allow you to use whichever is installed on the system you are using. In both 
+implementations the `module` command is used to interact with environment modules. An
 additional subcommand is usually added to the command to specify what you want to do. For a list
 of subcommands you can use `module -h` or `module help`. As for all commands, you can 
 access the full help on the *man* pages with `man module`.
@@ -175,6 +180,19 @@ Let's examine the output of `module avail` more closely.
 > Create a job that is able to run `python3 --version`. Remember, no software is loaded by default!
 > Running a job is just like logging on to the system (you should not assume a module loaded on the
 > login node is loaded on a compute node).
+{: .challenge}
+
+> ## Loading a module by default
+> 
+> Adding a set of `module load` commands to all of your scripts and having to manually load modules
+> every time you log on can be tiresome. Fortunately, there is a way of specifying a set of 
+> "default  modules" that always get loaded, regardless of whether or not you're logged on or 
+> running a job. Every user has two hidden files in their home directory: `.bashrc` and 
+> `.bash_profile` (you can see these files with `ls -la ~`). These scripts are run every time you 
+> log on or run a job. Adding a `module load` command to one of these shell scripts means that 
+> that module will always be loaded. Modify either your `.bashrc` or `.bash_profile` scripts to 
+> load a commonly used module like Python. Does your `python3 --version` job from before still 
+> need `module load` to run?
 {: .challenge}
 
 ## Installing software of our own

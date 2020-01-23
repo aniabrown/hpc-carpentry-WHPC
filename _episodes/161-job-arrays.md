@@ -84,11 +84,13 @@ example_job.pbs               job_array_example.e1266784.3  job_array_example.o1
 job_array_example.e1266784.1  job_array_example.e1266784.4  job_array_example.o1266784.3
 job_array_example.e1266784.2  job_array_example.o1266784.1  job_array_example.o1266784.4
 ```
-
-This submission script will currently launch exactly the same job 5 times -- this is not very useful! 
+Currently these jobs only print out their unique id, which is not very useful. Additionally, the output of these jobs is scattered among all the different output files, which we will need to process somehow. 
 
 > ## Responsible use
->Warning: Job arrays give you a lot of power -- use it wisely! All the jobs in a job array will go through the queuing system >so if you submit a job array that is too large eventually your jobs will get held to allow other users through. However, >it's best not to submit thousands of jobs at once, and always remember to test on small numbers of jobs first!
+> Warning: Job arrays give you a lot of power -- use it wisely! All the jobs in a job array will go 
+> through the queuing system so if you submit a job array that is too large eventually your jobs will 
+> get held to allow other users through. However, it's best not to submit thousands of jobs at once, 
+> and always remember to test on small numbers of jobs first!
 {: .callout}
 
 {% include links.md %}

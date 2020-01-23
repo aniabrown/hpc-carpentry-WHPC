@@ -3,13 +3,16 @@ title: "Using resources effectively"
 teaching: 15
 exercises: 10
 questions:
-- "How do we monitor our jobs?"
+- "What resources should I ask for in my job script?"
 - "How can I get my jobs scheduled more easily?" 
 objectives:
-- "Understand how to look up job statistics and profile code."
 - "Understand job size implications."
+- "Practice benchmarking a parallel code"
+- "Understand how to submit a job that uses multiple nodes"
 keypoints:
 - "The smaller your job, the faster it will schedule."
+- "Most parallel codes will eventually stop getting much faster even if you add more processes."
+- "If you have a serial code, it will still only run on one core even if you ask for multiple cores in your submission script."
 ---
 
 We now know virtually everything we need to know about getting stuff on a cluster. We can log on,
@@ -42,6 +45,15 @@ $ git clone https://github.com/aniabrown/ARC_parallel_programming_exercises
 ```
 {: .language-bash}
 
+```{.output}
+Cloning into 'ARC_parallel_programming_exercises'...
+remote: Enumerating objects: 30, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 30 (delta 8), reused 19 (delta 6), pack-reused 0
+Unpacking objects: 100% (30/30), done.
+```
+
 The example is in the pde directory:
 ```
 $ cd ARC_parallel_programming_exercises/pde
@@ -49,7 +61,8 @@ $ ls
 ```
 {: .language-bash}
 
-[** ls output]
+```{.output}
+```
 
 There are two different versions of the code: a serial version designed to run on one process and an MPI version designed to run on multiple processes. 
 
@@ -62,11 +75,56 @@ $ make pde_serial
 
 Just this once, we will see what the code does by running on the login node -- we know that the program is quick enough to do this. 
 
-[** output]
 
-[** note -- if we run the serial version on a job with many processes, we will still only run on one process!]
+```{.output}
+The RMS error in the final solution is 9.3157541e-12 
+On 1 process the time taken was 0.072513 seconds
+```
 
+This code is fast enough than we would usually not bother running it on more than one core 
+(the problem size is very small) but we can still use it to get a feel for how to choose 
+how many cores to request. The main things to keep in mind are that eventually adding more
+cores will likely not make the program run much faster (it may even run slower) and that the
+more cores you ask for the longer your job will wait in the scheduler. 
 
-Hint: 
+> ## Running across multiple processes
+> To compile the parallel version of the code, we will need to load the MPI module: 
+>
+>```
+>module load mpt
+>make integral_mpi
+> ```
+> {: .bash}
+> There is a submission script, mpi_job.pbs, in the integral folder:
+>```
+>#!/bin/bash
+>
+># job configuration
+>#PBS -N integral
+>#PBS -l select=1:ncpus=2
+>#PBS -l walltime=00:00:30
+>
+># Change to the directory that the job was submitted from
+># (remember this should be on the /work filesystem)
+>cd $PBS_O_WORKDIR
+>
+>module load mpt
+>module load intel-compilers-17
+>
+>mpiexec_mpt -ppn 2 -n 2 ./pde_mpi
+>```
+> {: .bash}
+>
+> Edit this to run on job counts between 1 and 72 processes and record the average calculation time reported
+> in each case. How does the program scale? Is there an ideal process count, taking into account queuing time? 
+> 
+> Note, the mpiexec_mpt command is used to launch the program on multiple processes. It takes the number of 
+> processes per node as the first argument and the total number of processes in the job as the second argument.
+> E.g. for a job running 72 processes across two nodes you would use -ppn 36 -n 72. You will also need to edit
+> the #PBS -l select statement to match. 
+>
+> Hint: A good rule of thumb is to make a guess and then roughly double or halve the process count for each
+> new run. 
+{: .challenge}
 
 {% include links.md %}

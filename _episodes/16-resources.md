@@ -105,6 +105,10 @@ more cores you ask for the longer your job will wait in the scheduler.
 >make heat_mpi
 > ```
 > {: .bash}
+> ```{.output}
+>mpicc -O3 -mavx -std=c99 -Wall -Wextra -pedantic -c heat_mpi.c
+>mpicc -O3 -mavx -std=c99 -Wall -Wextra -pedantic -o heat_mpi heat_mpi.o -lm
+> ```
 > There is a submission script, mpi_job.pbs, in the pde folder:
 >```
 >#!/bin/bash

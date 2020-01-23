@@ -28,9 +28,9 @@ A good rule of thumb is to ask the scheduler for more time and memory (perhaps 2
 
 ## Benchmarking example
 
-As an example, let's try benchmarking a very simple parallel program. This program calculates the integral under a function using the trapezoidal rule on N trapeziums. 
+As an example, let's try benchmarking a very simple parallel program. This program calculates the temperature at a series of points along a beam over time given an initial temperature distribution, using an equation based on the values of neighbouring points. 
 
-This work can be done in parallel by splitting the trapeziums equally among all processors that the job is running on. At the end, all processes will need to perform some global communication to combine their local sums.
+This work can be done in parallel by splitting the points equally among all processors that the job is running on. Every time step, there will need to be some communication among processes to share values at the edges of each region, which will use up some time.  
 
 With that in mind, let's grab the code. It is available at https://github.com/aniabrown/ARC_parallel_programming_exercises. 
 
@@ -42,9 +42,9 @@ $ git clone https://github.com/aniabrown/ARC_parallel_programming_exercises
 ```
 {: .language-bash}
 
-The example is in the integral directory:
+The example is in the pde directory:
 ```
-$ cd ARC_parallel_programming_exercises/integral
+$ cd ARC_parallel_programming_exercises/pde
 $ ls
 ```
 {: .language-bash}
@@ -56,7 +56,7 @@ There are two different versions of the code: a serial version designed to run o
 This code is written in C, which needs to be compiled into a machine readable executable before we can run it. To compile the serial version we can use the command:
 
 ```
-$ make integral_serial
+$ make pde_serial
 ```
 {: .language-bash}
 

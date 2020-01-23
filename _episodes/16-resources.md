@@ -1,7 +1,7 @@
 ---
 title: "Using resources effectively"
 teaching: 15
-exercises: 10
+exercises: 15
 questions:
 - "What resources should I ask for in my job script?"
 - "How can I get my jobs scheduled more easily?" 

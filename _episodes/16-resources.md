@@ -62,6 +62,7 @@ $ ls
 {: .language-bash}
 
 ```{.output}
+heat_serial.c heat_mpi.c  makefile  mpi_job.pbs
 ```
 
 There are two different versions of the code: a serial version designed to run on one process and an MPI version designed to run on multiple processes. 
@@ -92,15 +93,15 @@ more cores you ask for the longer your job will wait in the scheduler.
 >
 >```
 >module load mpt
->make integral_mpi
+>make heat_mpi
 > ```
 > {: .bash}
-> There is a submission script, mpi_job.pbs, in the integral folder:
+> There is a submission script, mpi_job.pbs, in the pde folder:
 >```
 >#!/bin/bash
 >
 ># job configuration
->#PBS -N integral
+>#PBS -N pde
 >#PBS -l select=1:ncpus=2
 >#PBS -l walltime=00:00:30
 >

@@ -70,16 +70,25 @@ There are two different versions of the code: a serial version designed to run o
 This code is written in C, which needs to be compiled into a machine readable executable before we can run it. To compile the serial version we can use the command:
 
 ```
-$ make pde_serial
+$ make heat_serial
 ```
 {: .language-bash}
 
+```{.output}
+gcc -O3 -mavx -std=c99 -Wall -Wextra -pedantic -c heat_serial.c
+gcc -O3 -mavx -std=c99 -Wall -Wextra -pedantic -o heat_serial heat_serial.o -lm
+```
+
 Just this once, we will see what the code does by running on the login node -- we know that the program is quick enough to do this. 
 
+```
+$ ./heat_serial
+```
+{: .language-bash}
 
 ```{.output}
-The RMS error in the final solution is 9.3157541e-12 
-On 1 process the time taken was 0.072513 seconds
+The RMS error in the final solution is 9.3145898e-12 
+On 1 process the time taken was 0.088503 seconds
 ```
 
 This code is fast enough than we would usually not bother running it on more than one core 
@@ -112,7 +121,7 @@ more cores you ask for the longer your job will wait in the scheduler.
 >module load mpt
 >module load intel-compilers-17
 >
->mpiexec_mpt -ppn 2 -n 2 ./pde_mpi
+>mpiexec_mpt -ppn 2 -n 2 ./heat_mpi
 >```
 > {: .bash}
 >

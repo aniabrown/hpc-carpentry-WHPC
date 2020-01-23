@@ -16,6 +16,10 @@ We just saw an example of how parallelising a job to run over too many processes
 
 ## Job Arrays
 
+Module in development
+
+{% comment %} 
+
 Job arrays are a way to cleanly submit many similar jobs while only having to define and launch one submission script. 
 
 Here is an example submission script. 
@@ -32,5 +36,6 @@ Warning: Job arrays give you a lot of power -- use it wisely! All the jobs in a 
 
 Warning: No communication is a slight lie -- you might need to do some small amount of processing afterwards. 
 
+{% endcomment %}
 
 {% include links.md %}

@@ -44,7 +44,7 @@ This is very similar to scripts we've seen before, with two changes. The configu
 We can launch the job array as we would launch a single job
 
 ```
-qsub -A tc007 -q R1247997 example-job.sh
+$ qsub -A tc007 -q R1247997 example-job.sh
 ```
 {: .language-bash}
 
@@ -75,7 +75,7 @@ Job id            Name             User              Time Use S Queue
 Remember, for all purposes other than ease of launching, these are completely separate jobs. They may get scheduled to run at different times, and each will generate its own output and error files:
 
 ```
-ls
+$ ls
 ```
 {: .language-bash}
 
@@ -86,11 +86,68 @@ job_array_example.e1266791.2  job_array_example.o1266791.1  job_array_example.o1
 ```
 Currently these jobs only print out their unique id, which is not very useful. Additionally, the output of these jobs is scattered among all the different output files, which we will need to process somehow. 
 
+## Example with input/output files per job
+
+Let's take a look at a more realistic example. 
+
+Download and untar the example files using:
+
+```
+$ wget {{site.url}}{{site.baseurl}}/files/job_array_example.tar.gz
+$ tar -xzf job_array_example.tar.gz
+$ cd job_array_example
+$ ls
+```
+{: .language-bash}
+
+```{.output}
+input_1.txt  input_3.txt  process_file.py       summarise_outputs.py
+input_2.txt  input_4.txt  submit_job_array.pbs
+```
+
+There are four input files, each containing a list of numbers. We can see an example using `cat input_1.txt`.
+
+The short python script `process_file.py` takes one of these input files, finds the maximum number in the file and prints that value to an output file that we specify -- very slightly more useful than our first example. 
+
+The script takes two arguments -- the input and output file names. For example:
+
+```
+$ module load anaconda/python3
+$ python3 process_file.py input_1.txt output_1.txt
+```
+{: .language-bash}
+
+> ## Process all four input files using a job array
+> The example folder contains the same submission script as in the previous example. Can you add a line that 
+> runs the `process_file` script on each input file? Remember, submitting the job array submission script will
+> launch four separate jobs each with their own value of `${PBS_ARRAY_INDEX}`.
+> > ## Solution
+> > #!/bin/bash
+
+> ># job configuration
+> >#PBS -N job_array_example
+> >#PBS -l select=1:ncpus=1
+> >#PBS -l walltime=00:00:30
+> >#PBS -J 1-4
+
+> ># Change to the directory that the job was submitted from
+> ># (remember this should be on the /work filesystem)
+> >cd $PBS_O_WORKDIR
+
+> >echo "Running job ${PBS_ARRAY_INDEX} of job array"
+
+> >module load anaconda/python3
+
+> >python process_file.py input_${PBS_ARRAY_INDEX}.txt output_${PBS_ARRAY_INDEX}.txt
+> {.solution}
+{: .challenge}
+
+
 > ## Responsible use
 > Warning: Job arrays give you a lot of power -- use it wisely! All the jobs in a job array will go 
 > through the queuing system so if you submit a job array that is too large eventually your jobs will 
-> get held to allow other users through. However, it's best not to submit thousands of jobs at once, 
-> and always remember to test on small numbers of jobs first!
+> get held to allow other users through. However, it's still best not to submit thousands of jobs at once, 
+> and always remember to test on a small numbers of jobs first!
 {: .callout}
 
 {% include links.md %}

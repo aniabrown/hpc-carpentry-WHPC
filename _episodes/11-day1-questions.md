@@ -1,6 +1,6 @@
 ---
-title: "Day Two"
-break: 10
+title: "Day one follow up"
+teaching: 10
 ---
 
 Minute cards: 

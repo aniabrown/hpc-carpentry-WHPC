@@ -60,7 +60,7 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 1266791[].indy2 ania     workq    job_array_    --    1   1    --  00:00 B   -- 
 ```
 
-And we can also look at the individual jobs using ```qstat -t jobId[]```. Eg ```qstat -t 1266784[]```
+And we can also look at the individual jobs using ```qstat -t jobId[]```. Eg ```qstat -t 1266791[]```
 
 ```{.output}
 Job id            Name             User              Time Use S Queue
@@ -80,9 +80,9 @@ ls
 {: .language-bash}
 
 ```{.output}
-example_job.pbs               job_array_example.e1266784.3  job_array_example.o1266784.2
-job_array_example.e1266784.1  job_array_example.e1266784.4  job_array_example.o1266784.3
-job_array_example.e1266784.2  job_array_example.o1266784.1  job_array_example.o1266784.4
+example_job.pbs               job_array_example.e1266791.3  job_array_example.o1266791.2
+job_array_example.e1266791.1  job_array_example.e1266791.4  job_array_example.o1266791.3
+job_array_example.e1266791.2  job_array_example.o1266791.1  job_array_example.o1266791.4
 ```
 Currently these jobs only print out their unique id, which is not very useful. Additionally, the output of these jobs is scattered among all the different output files, which we will need to process somehow. 
 

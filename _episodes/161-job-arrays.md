@@ -119,26 +119,26 @@ $ python3 process_file.py input_1.txt output_1.txt
 
 > ## Process all four input files using a job array
 > The example folder contains the same submission script as in the previous example. Can you add a line that 
-> runs the `process_file` script on each input file? Remember, submitting the job array submission script will
+> runs the `process_file.py` script on each input file? Remember, submitting the job array submission script will
 > launch four separate jobs each with their own value of `${PBS_ARRAY_INDEX}`.
 > > ## Solution
 > > ```
 > > #!/bin/bash
-
+> >
 > > # job configuration
 > > #PBS -N job_array_example
 > > #PBS -l select=1:ncpus=1
 > > #PBS -l walltime=00:00:30
 > > #PBS -J 1-4
-
+> >
 > > # Change to the directory that the job was submitted from
 > > # (remember this should be on the /work filesystem)
 > > cd $PBS_O_WORKDIR
-
+> >
 > > echo "Running job ${PBS_ARRAY_INDEX} of job array"
-
+> >
 > > module load anaconda/python3
-
+> >
 > > python process_file.py input_${PBS_ARRAY_INDEX}.txt output_${PBS_ARRAY_INDEX}.txt
 > >```
 > >{: .language-bash}

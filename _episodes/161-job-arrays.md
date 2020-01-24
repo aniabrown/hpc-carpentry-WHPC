@@ -142,7 +142,7 @@ $ python3 process_file.py input_1.txt output_1.txt
 > > python process_file.py input_${PBS_ARRAY_INDEX}.txt output_${PBS_ARRAY_INDEX}.txt
 > >```
 > >{: .language-bash}
-> {:.solution}
+> {: .solution}
 {: .challenge}
 
 

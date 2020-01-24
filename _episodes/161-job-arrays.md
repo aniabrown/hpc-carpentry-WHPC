@@ -88,9 +88,7 @@ Currently these jobs only print out their unique id, which is not very useful. A
 
 ## Example with input/output files per job
 
-Let's take a look at a more realistic example. 
-
-Download and untar the example files using:
+Let's take a look at a more realistic example. Download and untar the example files using:
 
 ```
 $ wget {{site.url}}{{site.baseurl}}/files/job_array_example.tar.gz
@@ -106,6 +104,29 @@ input_2.txt  input_4.txt  submit_job_array.pbs
 ```
 
 There are four input files, each containing a list of numbers. We can see an example using `cat input_1.txt`.
+
+```{.output}
+31587
+16729
+29533
+25846
+21477
+6016
+25138
+30079
+4120
+12355
+793
+26439
+31226
+18139
+4081
+9797
+32245
+6563
+15591
+7784
+``` 
 
 The short python script `process_file.py` takes one of these input files, finds the maximum number in the file and prints that value to an output file that we specify -- very slightly more useful than our first example. 
 
@@ -139,12 +160,28 @@ $ python3 process_file.py input_1.txt output_1.txt
 > >
 > > module load anaconda/python3
 > >
-> > python process_file.py input_${PBS_ARRAY_INDEX}.txt output_${PBS_ARRAY_INDEX}.txt
+> > python3 process_file.py input_${PBS_ARRAY_INDEX}.txt output_${PBS_ARRAY_INDEX}.txt
 > >```
 > >{: .language-bash}
 > {: .solution}
 {: .challenge}
 
+In this example, we create one output file per job in the job array -- this is fairly typical. The last piece of work we need to do is then to process those output files -- in this example there is a python script, `summarise_outputs`, which reads through all the output files and puts them into a summary results table, `summary_file.csv`. 
+
+```
+$ module load anaconda/python3
+$ python3 summarise_outputs.py
+$ cat summary_file.csv
+```
+{: .language-bash}
+
+```{.output}
+job, max
+1,32245
+2,32244
+3,29748
+4,30474
+```
 
 > ## Responsible use
 > Warning: Job arrays give you a lot of power -- use it wisely! All the jobs in a job array will go 

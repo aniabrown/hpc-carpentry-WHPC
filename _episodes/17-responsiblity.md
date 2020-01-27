@@ -17,8 +17,8 @@ keypoints:
 - "Your data on the system is your responsibility."
 - "Plan and test large data transfers."
 - "It is often best to convert many files to a single archive file before transferring."
-- "Again, don't run stuff on the login node."
-- "Don't be a bad person and run stuff on the login node."
+- "Don't run stuff on the login node."
+- "Really don't run stuff on the login node."
 - "When in doubt, talk to the cluster support team first"
 ---
 
@@ -82,6 +82,24 @@ staff (usually via the helpdesk) for them to investigate. You can use the `top` 
 to see which users are using which resources.
 
 ## Test before scaling
+
+Can you see what's wrong with this submission script?
+
+```
+#!/bin/bash
+
+# job configuration
+#PBS -N long_python_job
+#PBS -l select=1:ncpus=36
+#PBS -l walltime=00:24:00
+
+# Change to the directory that the job was submitted from
+# (remember this should be on the /work filesystem)
+cd $PBS_O_WORKDIR
+
+python my_script.py
+```
+{: .language-bash}
 
 Remember that you are generally charged for usage on shared systems. A simple mistake in a 
 job script can end up costing a large amount of resource budget. Imagine a job script with 

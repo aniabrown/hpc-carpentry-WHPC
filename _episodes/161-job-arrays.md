@@ -44,7 +44,7 @@ This is very similar to scripts we've seen before, with two changes. The configu
 We can launch the job array as we would launch a single job
 
 ```
-$ qsub -A tc007 -q R1247997 example-job.sh
+$ {{ site.host_prompt }} {{ site.sched_submit }} {{ site.sched_submit_options }} example-job.sh
 ```
 {: .language-bash}
 

@@ -32,7 +32,7 @@ the scheduling system where you submit your jobs, but there are other things you
 to consider in order to be a considerate HPC citizen, to protect your critical data
 and to transfer data 
 
-> ## It's relatively hard to break a cluster
+> ## It's pretty hard to break a cluster
 >
 > While it is important to keep in mind the following guidelines for using the cluster responsibly,
 > it is also possible to be too scared of breaking something -- remember, these systems exist to be used!
@@ -87,8 +87,7 @@ Remember that you are generally charged for usage on shared systems. A simple mi
 job script can end up costing a large amount of resource budget. Imagine a job script with 
 a mistake that makes it sit doing nothing for 24 hours on 1000 cores or one where you have
 requested 2000 cores by mistake and only use 100 of them! This problem can be compounded 
-when people write scripts that automate job submission (for example, when running the same
-calculation or analysis over lots of different input).  When this happens it hurts both you
+when people write scripts that automate job submission (for example, using job arrays).  When this happens it hurts both you
 (as you waste lots of charged resource) and other users (who are blocked from accessing the
 idle compute nodes).
 
@@ -98,11 +97,11 @@ systems provide dedicated resources for testing that have short wait times to he
 avoid this issue.
 
 > ## Test job submission scripts that use large amounts of resource
-> Before submitting a large run of jobs, submit one as a test first to make sure everything works
-> as expected.
->
 > Before submitting a very large or very long job submit a short truncated test to ensure that
 > the job starts as expected
+>
+> Before submitting a large collection of jobs, submit one as a test first to make sure everything works
+> as expected.
 {: .callout}
 
 ## Have a backup plan
@@ -149,7 +148,7 @@ copy and transfer because significantly fewer meta-data operations are required.
 be created using tools like `tar` and `zip`. We have already met `tar` when we talked about data
 transfer earlier. 
 
-If you are transferring large amounts of data it is always useful to run some tests that you can use 
+If you are transferring large (>10GB) amounts of data it is always useful to run some tests that you can use 
 to extrapolate how long it will take to transfer your data. 
 
 ## Getting help

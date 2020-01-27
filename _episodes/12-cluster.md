@@ -32,14 +32,8 @@ permissions for on the cluster.
 > On Linux and/or macOS, the `ssh` command line utility is almost always pre-installed. Open a
 > terminal and type `ssh --help` to check if that is the case. 
 > 
-> At the time of writing, the openssh support on Microsoft is still very 
-> [recent](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/). 
-> Alternatives to this are [putty](http://www.putty.org), 
-> [bitvise SSH](https://www.bitvise.com/ssh-client-download), 
-> [mRemoteNG](https://mremoteng.org/) or [MobaXterm](https://mobaxterm.mobatek.net/). 
-> Download it, install it and open the GUI. The GUI asks for your user name and the destination
-> address or IP of the computer you want to connect to. Once provided, you will be queried for 
-> your password just like in the example above.
+> At the time of writing, the easiest way to get access to ssh is to install the git bash program. See 
+> [setup](https://aniabrown.github.io/hpc-carpentry-shell-WHPC/setup/) for more details.
 {: .callout}
 
 ## Where are we?
@@ -56,7 +50,7 @@ notice that the current hostname is also part of our prompt!)
 {: .bash}
 
 ```
-{{ site.host_name }}
+cirrus-login0
 ```
 {: .output}
 

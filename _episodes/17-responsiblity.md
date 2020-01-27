@@ -69,11 +69,11 @@ with the *PID* to terminate any processes that are using large amounts of resour
 > ## Login Node Etiquette
 > 
 > Which of these commands would probably be okay to run on the login node?
-> python physics_sim.py
-> make
-> create_directories.sh
-> molecular_dynamics_2
-> tar -xzf R-3.3.0.tar.gz
+> - python physics_sim.py
+> - make
+> - create_directories.sh
+> - molecular_dynamics_2
+> - tar -xzf R-3.3.0.tar.gz
 > 
 {: .challenge}
 

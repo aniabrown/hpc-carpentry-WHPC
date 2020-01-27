@@ -69,8 +69,8 @@ Linux users do not need to install anything, you should be set!
 
 We would like to invite you to sign up for your account on Cirrus, the HPC machine that will be available to you during the workshop, and also for a short while afterwards, so you can complete practical exercises and put what you have learned into practice.
 
-To sign up for a machine account, you must first register for an account on SAFE:
-https://tier2-safe.readthedocs.io/en/latest/safe-guide-users.html
+To sign up for a machine account, you must first register for an [account on SAFE](https://tier2-safe.readthedocs.io/en/latest/safe-guide-users.html)
 
-Once you have a SAFE account, you canrequest your machine account under project tc008:
-https://tier2-safe.readthedocs.io/en/latest/safe-guide-users.html#tier-2-facilities-accounts-passwords
+Once you have a SAFE account, you can request your machine account under project tc008: 
+[https://tier2-safe.readthedocs.io/en/latest/safe-guide-users.html#tier-2-facilities-accounts-passwords](https://tier2-safe.readthedocs.io/en/latest/safe-guide-users.html#tier-2-facilities-accounts-passwords)
+

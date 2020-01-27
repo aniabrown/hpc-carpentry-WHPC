@@ -31,7 +31,7 @@ We maintain a list of common issues that occur during installation as a referenc
    
 This will provide you with bash (and SSH) in the Git Bash program.
    
-The video below talks through installing and opening git bash v2.7.2. You will not need to additionally download the Software Carpentry Windows Installer for this workshop that is mentioned in the video. 
+The video below talks through installing and opening git bash v2.7.2. You will not need to additionally download the Software Carpentry Windows Installer that is mentioned in the video for this workshop.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/339AEqk9c-8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -17,7 +17,14 @@ We just saw an example of how parallelising a job to run over too many processes
 
 Job arrays are a way to cleanly submit many similar jobs while only having to define and launch one submission script. 
 
-Here is an example submission script: 
+Here is an example submission script. Either copy paste it to `example-job.sh` or download it using: 
+
+```
+$ wget {{site.url}}{{site.baseurl}}/files/simple_job_array_example.tar.gz
+$ tar -xzf simple_job_array_example.tar.gz
+$ cd simple_job_array_example
+```
+{: .language-bash}
 
 ```
 #!/bin/bash
@@ -25,7 +32,7 @@ Here is an example submission script:
 # job configuration
 #PBS -N job_array_example
 #PBS -l select=1:ncpus=1
-#PBS -l walltime=00:00:30
+#PBS -l walltime=00:02:00
 #PBS -J 1-4
 
 # Change to the directory that the job was submitted from
@@ -34,8 +41,7 @@ cd $PBS_O_WORKDIR
 
 echo "Running job ${PBS_ARRAY_INDEX} of job array"
 
-sleep 10
-
+sleep 120
 ```
 {: .language-bash}
 

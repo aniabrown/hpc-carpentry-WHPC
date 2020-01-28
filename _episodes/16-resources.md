@@ -11,7 +11,7 @@ objectives:
 - "Understand how to submit a job that uses multiple nodes"
 keypoints:
 - "The smaller your job, the faster it will schedule."
-- "Most parallel codes will eventually stop getting much faster even if you add more processes."
+- "For a constant proble size, most parallel codes will eventually stop getting faster with more processes."
 - "If you have a serial code, it will still only run on one core even if you ask for multiple cores in your submission script."
 ---
 
@@ -27,7 +27,7 @@ what type of resources we will need in the first place?
 Answer: we don't. Not until we've tried it ourselves at least once. We'll need to benchmark our job
 and experiment with it before we know how much it needs in the way of resources.
 
-A good rule of thumb is to ask the scheduler for more time and memory (perhaps 20% more) than you expect your job to need after benchmarking. This ensures that minor fluctuations in run time or memory use will not result in your job being canceled by the scheduler. Keep in mind that the more resources you ask for, the longer your job will wait in the scheduler to run. 
+A good rule of thumb is to ask the scheduler for more time and memory (perhaps 20% more) than you expect your job to need after benchmarking. This ensures that minor fluctuations in run time or memory use will not result in your job being canceled by the scheduler. Keep in mind that the more resources you ask for, the longer your job will wait in the scheduler queue to run. 
 
 ## Benchmarking example
 
@@ -95,7 +95,7 @@ This code is fast enough than we would usually not bother running it on more tha
 (the problem size is very small) but we can still use it to get a feel for how to choose 
 how many cores to request. The main things to keep in mind are that eventually adding more
 cores will likely not make the program run much faster (it may even run slower) and that the
-more cores you ask for the longer your job will wait in the scheduler. 
+more cores you ask for the longer your job will wait in the scheduler queue. 
 
 > ## Running across multiple processes
 > To compile the parallel version of the code, we will need to load the MPI module: 

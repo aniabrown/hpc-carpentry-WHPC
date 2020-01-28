@@ -159,7 +159,7 @@ guidance on your options for data transfer for the volumes of data you will be u
 As mentioned above, many users run into the challenge of transferring large amounts of data 
 onto or off HPC systems at some point.
 
-As mentioned, if you have related data that consists of a large number of small files it
+If you have related data that consists of a large number of small files it
 is strongly recommended to pack the files into a larger *archive* file for long term storage and
 transfer. A single large file makes more efficient use of the file system and is easier to move,
 copy and transfer because significantly fewer meta-data operations are required. Archive files can

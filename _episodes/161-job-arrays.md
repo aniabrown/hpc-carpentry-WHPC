@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Understand how to launch similar jobs using a job array."
 keypoints:
-- "Job arrays allow you to launch many jobs that differ by only a single parameter, using just one submission script."
+- "Job arrays allow you to launch many jobs that are each assigned a different index value, using just one submission script."
 ---
 
 We just saw an example of how parallelising a job to run over too many processes may eventually result in negative returns due to the time taken for all those processes to communicate with each other. However, sometimes we are in the lucky situation where the work we need to do can be separated into truly independent tasks, with no communication required between them. The classic example of this is a parameter search, where we run the same algorithm on a range of different inputs. In that case we can make use of a feature of the job scheduler known as a job array.
@@ -49,7 +49,7 @@ $ {{ site.host_prompt }} {{ site.sched_submit }} {{ site.sched_submit_options }}
 {: .language-bash}
 
 
-The status of the job array can be viewed summarised in a single line using ```qstat -u $USER```
+The status of the job array as a whole can be viewed using ```qstat -u $USER```
 
 ```{.output}
 

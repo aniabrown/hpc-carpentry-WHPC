@@ -91,7 +91,7 @@ Can you see what's wrong with this submission script?
 # job configuration
 #PBS -N long_python_job
 #PBS -l select=1:ncpus=36
-#PBS -l walltime=00:24:00
+#PBS -l walltime=24:00:00
 
 # Change to the directory that the job was submitted from
 # (remember this should be on the /work filesystem)

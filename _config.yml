@@ -83,7 +83,7 @@ host_prompt: "[yourUsername@cirrus-login0 ~]$"
 local_prompt: "[user@laptop ~]$"
 sched_name: "PBS Pro"
 sched_submit: "qsub"
-sched_submit_options: "-A tc008 -q R1247997"
+sched_submit_options: "-A tc008 -q R1262266"
 sched_status: "qstat"
 sched_flag_user: "-u yourUsername"
 sched_del: "qdel"
@@ -94,7 +94,7 @@ sched_comment: "#PBS"
 sched_flag_name: "-N"
 sched_hist: "qstat -x"
 sched_flag_histdetail: "-f"
-sched_reservation: "R1247997"
+sched_reservation: "R1262266"
 sched_account: tc008
 
 # Interactive queue names, one or more as a list

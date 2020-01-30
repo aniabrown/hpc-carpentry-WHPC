@@ -65,7 +65,7 @@ run as a test.
 >
 > echo 'This script is running on:'
 > hostname
-> sleep 120
+> sleep 60
 > ```
 > {: .bash}
 {: .challenge}
@@ -171,14 +171,14 @@ about how to make sure that you're using resources effectively in a later episod
 
 > ## Submitting resource requests
 >
-> Submit a job that will use 1 full node and 5 minutes of walltime.
+> Submit a job that will use 1 full node and 2 minutes of walltime.
 {: .challenge}
 
 {% include /snippets/13/env_challenge.snip %}
 
 Resource requests are typically binding. If you exceed them, your job will be killed. Let's use
-walltime as an example. We will request 30 seconds of walltime, and attempt to run a job for two
-minutes.
+walltime as an example. We will request 30 seconds of walltime, and attempt to run a job for one
+minute.
 
 ```
 {% include /snippets/13/long_job.snip %}

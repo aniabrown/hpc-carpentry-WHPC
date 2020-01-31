@@ -123,7 +123,7 @@ been restarted.
 > How about memory? Try running: 
 >
 > ```
-> {{ site.host_prompt}} free -m
+> {{ site.host_prompt}} free -h
 > ```
 > {: .language-bash}
 {: .challenge}
